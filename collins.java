@@ -119,6 +119,7 @@ public class collins {
     public void takeDamage(int damage){
         curHealth -= (int)(damage/defense);
         System.out.println("You took: "+(int)(damage/defense)+" damage.");
+        System.out.println();
         if (curHealth <= 0){
             dead = true;
         }
@@ -142,10 +143,25 @@ public class collins {
         System.out.println("Defense: "+defense);
         System.out.println("Magic: "+magic);
         System.out.println("Speed: "+speed);
+        System.out.println("Weapon: "+weapon);
     }
 
     public void displayHP(){
         System.out.println("HP: "+curHealth+"/"+health);
+    }
+
+    public void takeMagic(int damage){
+        curHealth -= (int)(damage/magic);
+        System.out.println("You took: "+(int)(damage/magic)+" damage.");
+        if (curHealth <= 0){
+            dead = true;
+        }
+    }
+
+    public int dealMagic(){
+        double range = Math.random()+0.5;
+        System.out.println("You used In The Air Tonight: ");
+        return (int) (magic*1.5*range);
     }
 
     public void displaySpells(){
@@ -179,6 +195,12 @@ public class collins {
 
         }
     }
+    
+    public int chooseSpells(){
+        displaySpells();
+        int whichSpell = main.intInput("Which spell would like to use it? ");
+        if (spells[whichSpell] == )
+    }
 
     public void upgradeWeapon(){
         if(weapon.equals("Wooden Drumsticks")){
@@ -202,6 +224,7 @@ public class collins {
         }else if (weapon.equals("Boohbah Drumsticks")){
             System.out.println("You can't upgrade your weapon further");
         }
+        System.out.println("Upgraded weapon to "+weapon);
     }
 
     public int dealDamage(){
@@ -227,10 +250,11 @@ public class collins {
         }else if (weapon.equals("Boohbah Drumsticks")){
             modifier = 4;
         }
-        double range = Math.random()+0.8;
+        double range = Math.random()+0.5;
         int damage = (int) ((attack * modifier)*10*range);
         return damage;
     }
+
 
     
 }

@@ -2,20 +2,20 @@ import java.util.ArrayList;
 
 public class enemy {
     public String name;
-    private static int health;
-    private static int curHealth;
+    private int health;
+    private int curHealth;
     private ArrayList<String> spells;
     public int speed; 
     public boolean dead = false;
-    private static double attack;
+    private double attack;
     private double defense;
     private double magic;
-    private double magicChance;
+    public double magicChance;
     private String specialMove;
 
     public enemy(String name){
         this.name = name;
-        if (name.equals("maddy")){
+        if (this.name.equals("maddy")){
             health = 10;
             attack = 2;
             defense = 2;
@@ -23,7 +23,7 @@ public class enemy {
             speed = 55;
             magicChance = 70;
             specialMove = "The Disabler";
-        }else if (name.equals("quint")){
+        }else if (this.name.equals("quint")){
             health = 20;
             attack = 4;
             defense = 4;
@@ -31,7 +31,7 @@ public class enemy {
             speed = 27;
             magicChance = 20;
             specialMove = "Idiot Punch";
-        }else if (name.equals("maxwell")){
+        }else if (this.name.equals("maxwell")){
             health = 25;
             attack = 6;
             defense = 2;
@@ -39,7 +39,7 @@ public class enemy {
             speed = 40;
             magicChance = 50;
             specialMove = "Smash Bros. Punch";
-        }else if (name.equals("troy")){
+        }else if (this.name.equals("troy")){
             health = 15;
             attack =  random(6,7);
             defense = random(6,7);
@@ -233,18 +233,33 @@ public class enemy {
     }
 
     public int dealDamage(){
-        double range = Math.random()+0.8;
-        return (int) ((attack*2)*10*range);
+        double range = Math.random()+0.5;
+        return (int) (attack*10*range);
     }
 
     public void displayStats(){
         System.out.println(name);
         System.out.println(curHealth+"/"+health);
+        System.out.println();
     }
 
     public void takeDamage(int damage){
         curHealth -= (int)(damage/defense);
         System.out.println("Enemy took: "+(int)(damage/defense)+" damage.");
+        if (curHealth <= 0){
+            dead = true;
+        }
+    }
+
+    public int dealMagic(){
+        double range = Math.random()+0.5;
+        System.out.println("Enemy used: "+specialMove);
+        return (int) (magic*1.5*10*range);
+    }
+
+    public void takeMagic(int damage){
+        curHealth -= (int)(damage/magic);
+        System.out.println("Enemy took: "+(int)(damage/magic)+" damage.");
         if (curHealth <= 0){
             dead = true;
         }

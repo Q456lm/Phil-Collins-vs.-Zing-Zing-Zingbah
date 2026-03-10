@@ -173,6 +173,7 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
     }
 
     public static void game(){
+        clear();
         boolean alive = true;
         collins phil = new collins();
         while (alive){
@@ -199,10 +200,13 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
         int yourDamage;
         int enemyDamage;
         if (choice == 3){
+            System.out.println();
             phil.displayStats();
+            System.out.println();
         }else{
             int yourSpeed = random(-5,5) + phil.speed;
             int eneSpeed = random(-5,5) + curEnemey.speed;
+            int randMagic = random(1,100);
             if (yourSpeed > eneSpeed){
                 if(choice == 1){
                     yourDamage = phil.dealDamage();
@@ -219,11 +223,18 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
                     waitTime(2);
                     System.out.println();
                     curEnemey.displayStats();
+                    System.out.println();
                 }
+                waitTime(1);
+
+                if (randMagic > curEnemey.magicChance){
 
                 enemyDamage = curEnemey.dealDamage();
-                waitTime(1);
                 phil.takeDamage(enemyDamage);
+                }else{
+                    enemyDamage = curEnemey.dealMagic();
+                    phil.takeMagic(enemyDamage);
+                }
                 if (phil.dead){
                     waitTime(3);
                     System.out.println("I lost. Game Over.");
@@ -234,7 +245,14 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
             }else{
                 enemyDamage = curEnemey.dealDamage();
                 waitTime(1);
+                if (randMagic > curEnemey.magicChance){
+
+                enemyDamage = curEnemey.dealDamage();
                 phil.takeDamage(enemyDamage);
+                }else{
+                    enemyDamage = curEnemey.dealMagic();
+                    phil.takeMagic(enemyDamage);
+                }
                 if (phil.dead){
                     waitTime(3);
                     System.out.println("I lost. Game over.");
@@ -250,7 +268,6 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
                         waitTime(2);
                         System.out.println("Defeated "+curEnemey.name);
                         playing = false;
-                        alive = false;
                         break;
                     }
                 }
@@ -258,10 +275,52 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
                     waitTime(2);
                     System.out.println();
                     curEnemey.displayStats();
+                    System.out.println();
                 } 
             }
         }
     }
+    if (alive){
+    int randyi = random(1,100);
+    if (randyi > 85){
+        System.out.println();
+    }else if (randyi > 75){
+        System.out.println("HP UP");
+        phil.gainHealth();
+    }else if (randyi > 65){
+        System.out.println("Defense UP");
+        phil.gainDefense();
+    }else if (randyi > 55){
+        System.out.println("Magic UP");
+        phil.gainMagic();
+    }else if (randyi > 45){
+        System.out.println("MP UP");
+        phil.gainMP();
+    }else if (randyi > 36){
+        System.out.println("Attack UP");
+        phil.gainSpeed();
+    }else if (randyi > 27){
+        System.out.println("Speed UP");
+        phil.gainAttack();
+    }else if (randyi > 20){
+        phil.gainSpell();
+    }else if (randyi > 15){
+        phil.upgradeWeapon();
+    }else if (randyi > 10){
+        System.out.println("Recover HP");
+        phil.healHP();
+    }else if (randyi > 5){
+        System.out.println("Recover MP");
+        phil.healMP();
+    }else if (randyi > 1){
+        System.out.println("complete restoration");
+        phil.heal();
+    }
+}
+
+    System.out.println();
+    waitTime(3);
+    clear();
 }
 
 
