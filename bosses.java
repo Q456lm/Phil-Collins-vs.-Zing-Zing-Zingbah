@@ -356,8 +356,188 @@ public class bosses {
             attack = 19;
             defense = 19;
             magic = 19;
-            magicChance = 19;
+            magicChance = 50;
             speed = 93;
+        }else if (number == 39){
+            name = "A Bass";
+            title = "Like a guitar";
+            health = 130;
+            attack = 20;
+            defense = 19;
+            magic = 18;
+            magicChance = 50;
+            speed = 34;
+        }else if (number == 40){
+            name = "A Bass";
+            title = "Like a fish";
+            health = 115;
+            attack = 19;
+            defense = 21;
+            magic = 14;
+            magicChance = 20;
+            speed = 34;
+        }else if (number == 41){
+            name = "George Harrison";
+            title = "Of The Beatles";
+            health = 100;
+            attack = 1;
+            defense = 20;
+            magic = 21;
+            magicChance = 100;
+            speed = 140;
+        }else if (number == 42){
+            name = "meaning of life";
+            title = "The question is what is 6x7?";
+            health = 126;
+            attack = 21;
+            defense = 21;
+            magic = 21;
+            magicChance = 42;
+            speed = 42;
+        }else if (number == 43){
+            name = "yoda";
+            title = "Jedi Master";
+            health = 100;
+            attack = 5;
+            defense = 20;
+            magic = 24;
+            magicChance = 80;
+            speed = 69;
+        }else if (number == 44){
+            name = "Your stupid questions while playing this game";
+            title = "No, I was not \"On Something\"";
+            health = 140;
+            attack = 22;
+            defense = 23;
+            magic = 23;
+            magicChance = 60;
+            speed = 91;
+        }else if (number == 45){
+            name = "Nancy Pelosi";
+            title = "52nd Speaker of the United States House of Representatives";
+            health = 128;  
+            attack = 24.3;
+            defense = 22.3;
+            magic = 17.3;
+            magicChance = 50;
+            speed = 66;
+        }else if (number == 46){
+            name = "Ur Mom";
+            title = "She sits around the room";
+            health = 155;
+            attack = 14;
+            defense = 30;
+            magic = 1;
+            magicChance = 0;
+            speed = -150;
+        }else if (number == 47){
+            name = "King Arthur";
+            title = "Matter of Britian";
+            health = 139;
+            attack = 26;
+            defense = 20;
+            magic = 15;
+            magicChance = 35;
+            speed = 69;
+        }else if (number == 48){
+            name = "Chandler";
+            title = "Strange person";
+            health = 108;
+            attack = 25;
+            defense = 25;
+            magic = 25;
+            magicChance = 69;
+            speed = 69;
+        }else if (number == 49){
+            name = "A Black Hole";
+            title = "prevent from running away";
+            health = 131;
+            attack = 27;
+            defense = 20;
+            magic = 27;
+            magicChance = 50;
+            speed = 0;
+        }else if (number == 50){
+            name = "The Nintendo GameCube";
+            title = "Losers of the console wars";
+            health = 130;
+            attack = 27;
+            defense = 21;
+            magic = 26;
+            magicChance = 50;
+            speed = 74;
+        }else if (number == 51){
+            name = "Top 10 most boring numbers";
+            title = "Number 8 makes me feel depressed";
+            health = 131;
+            attack = 28;
+            defense = 17;
+            magic = 29;
+            magicChance = 53;
+            speed = 37;
+        }else if (number == 52){
+            name = "A Tree";
+            title = "It just keeps growing";
+            health = 140;
+            attack = 27;
+            defense = 27;
+            magic = 27;
+            magicChance = 50;
+            speed = 1000000000;
+        }else if (number == 53){
+            name = "The Chaos Emperor of Darkness";
+            title = "From Final Fanstasy Owee";
+            health = 160;
+            attack = 17;
+            defense = 21;
+            magic = 36.6;
+            magicChance = 30;
+            speed = 90;
+        }else if (number == 54){
+            name = "Mean Mr. Mustard";
+            title = "Sleeper in the park and Shaver in the dark";
+            health = 147;
+            attack = 29;
+            defense = 27;
+            magic = 21;
+            magicChance = 78;
+            speed = 54;
+        }else if (number == 55){
+            name = "Twitter";
+            title = "Sorry, X";
+            health = 146;
+            attack = 23.5;
+            defense = 19;
+            magic = 33.7;
+            magicChance = 50;
+            speed = 65;
+        }else if (number == 56){
+            name = "A Singular Strand of Hair";
+            title = "No one knows where it came from";
+            health = 1;
+            attack = 55;
+            defense = 1;
+            magic = 30;
+            magicChance = 50;
+            speed = 150;
+        }else if (number == 57){
+            name = "Bernie Sanders";
+            title = "American politician and activist";
+            health = 126;
+            attack = 29;
+            defense = 29;
+            magic = 29;
+            magicChance = 64;
+            speed = 81;
+        }else if (number == 58){
+            name = "Shawshank";
+            title = "After redemtion";
+            health = 120;
+            attack = 30;
+            defense = 30;
+            speed = 30;
+            magicChance = 50;
+            speed = 140;
         }
     }
 }
