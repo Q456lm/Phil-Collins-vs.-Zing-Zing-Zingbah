@@ -6,7 +6,7 @@ public class bosses {
     private String art;
     private int health;
     private int curHealth;
-    private ArrayList<String> spells;
+    private ArrayList<magic> spells = new ArrayList<magic>();
     public int speed; 
     public boolean dead = false;
     private double attack;
@@ -34,6 +34,7 @@ public class bosses {
             defense = 8;
             magic = 8;
             magicChance = 40;
+            spells.add(new magic("it's grey mom",1));
         }else if (number == 3){
             name = "Sephiroth";
             title = "One-Winged Angel";
@@ -43,6 +44,8 @@ public class bosses {
             magic = 10;
             magicChance = 30;
             speed = 69;
+            spells.add(new magic("Shadow Flare",1));
+            spells.add(new magic("Super Nova",21));
         }else if (number == 4){
             name = "Steve";
             title = "Chicken Jockey";
@@ -52,6 +55,9 @@ public class bosses {
             magic = 7;
             magicChance = 50;
             speed = 45;
+            spells.add(new magic("Flint & Steel",9));
+            spells.add(new magic("The Nether",10));
+            spells.add(new magic("Ender Pearl",4));
         }else if (number == 5){
             name = "100 Guys";
             title = "they will win";
@@ -61,6 +67,7 @@ public class bosses {
             magic = 5;
             magicChance = 20;
             speed = 30;
+            spells.add(new magic("Body Crash",2));
         }else if (number == 6){
             name = "Gorilla";
             title = "it will win";
@@ -79,6 +86,8 @@ public class bosses {
             magic = 8;
             magicChance = 60;
             speed = 40;
+            spells.add(new magic("Ode To Pain",1));
+            spells.add(new magic("When the demons go dying out",17));
         }else if (number == 8){
             name = "Wesley";
             title = "The man from \"The Princess Bride\"";
@@ -88,6 +97,8 @@ public class bosses {
             magic = 9;
             magicChance = 40;
             speed = 70;
+            spells.add(new magic("True Love",4));
+            spells.add(new magic("To The Pain",1));
         }else if (number == 9){
             name = "Shawshank";
             title = "From \"The Shawshank Redemption\"";
@@ -97,6 +108,7 @@ public class bosses {
             magic = 10;
             magicChance = 50;
             speed = 70;
+            spells.add(new magic("Redemtion Attack",1));
         }else if (number == 10){
             name = "Dr. Mario";
             title = "He will cure all diseases";
@@ -105,6 +117,9 @@ public class bosses {
             defense = 11;
             magic = 12;
             magicChance = 100;
+            spells.add(new magic("Red Pill",1));
+            spells.add(new magic("Blue Pill",21));
+            spells.add(new magic("Green Pill",3));
         }else if (number == 11){
             name = "A Dog";
             title = "big scary thing";
@@ -121,7 +136,12 @@ public class bosses {
             attack = 10;
             defense = 10;
             magic = 10;
+            magicChance = 50;
             speed = 10;
+            spells.add(new magic("Pum Blast",1));
+            spells.add(new magic("The Study of Fiction",21));
+            spells.add(new magic("United Confusion",4));
+            spells.add(new magic("Only Pumbah?",18));
             magicChance = 50;
         }else if (number == 13){
             name = "The Number 13";
@@ -132,6 +152,7 @@ public class bosses {
             magic = 13;
             speed = 13;
             magicChance = 65;
+            spells.add(new magic("13 Attack",1));
         }else if (number == 14){
             name = "Anne Wood";
             title = "The creator of Boohbah";
@@ -141,6 +162,7 @@ public class bosses {
             magic = 18;
             magicChance = 30;
             speed = 77;
+            spells.add(new magic("The Creation",1));
         }else if (number == 15){
             name = "The concept of division";
             title = "One of the four basic operations in mathematics";
@@ -150,6 +172,8 @@ public class bosses {
             magic = 16;
             speed = 81;
             magicChance = 60;
+            spells.add(new magic("Division",21));
+            spells.add(new magic("Square Root",2));
         }else if (number == 16){
             name = "Plato";
             title = "Inventor of Philosophy";
@@ -159,6 +183,9 @@ public class bosses {
             magic = 20;
             speed = 42;
             magicChance = 100;
+            spells.add(new magic("Theory of Forms",8));
+            spells.add(new magic("Theory of Soul",5));
+            spells.add(new magic("Form of the Good",1));
         }else if (number == 17){
             name = "Dragonite";
             title = "The Dragon Pokemon";
@@ -168,6 +195,8 @@ public class bosses {
             magic = 10;
             speed = 40;
             magicChance = 50;
+            spells.add(new magic("Dragon Breath",1));
+            spells.add(new magic("Hyper Beam",2));
         }else if (number == 18){
             name = "An evil Phil Collins clone, but not actually a clone or Phil Collins";
             title = "He cares";
@@ -177,6 +206,8 @@ public class bosses {
             magic = 13;
             magicChance = 70;
             speed = 25;
+            spells.add(new magic("In The Floor Today",1));
+            spells.add(new magic("One Less Day",4));
 
         }else if (number == 19){
             name = "Freddie Mercury";
@@ -187,6 +218,9 @@ public class bosses {
             magic = 12;
             magicChance = 75;
             speed = 68;
+            spells.add(new magic("Bohemian Rhapsody",1));
+            spells.add(new magic("We Will Rock You",13));
+            spells.add(new magic("Don't Stop Me Now",4));
         }else if (number == 20){
             name = "A Bird";
             title = "Just a normal bird";
@@ -205,6 +239,8 @@ public class bosses {
             magic = 10;
             magicChance = 50;
             speed = 50;
+            spells.add(new magic("Fire",1));
+            spells.add(new magic("Ground Pound",26));
         }else if (number == 22){
             name = "A Lake";
             title = "It's full of pee";
@@ -214,6 +250,8 @@ public class bosses {
             magic = 14;
             magicChance = 50;
             speed = 66;
+            spells.add(new magic("Flood",1));
+            spells.add(new magic("Tsunami",2));
         }else if (number == 23){
             name = "Samus";
             title = "Intergalatic Bounty Hunter";
@@ -538,6 +576,177 @@ public class bosses {
             speed = 30;
             magicChance = 50;
             speed = 140;
+        }else if (number == 59){
+            name = "My Dream Last Night";
+            title = "McCuen was there";
+            health = 143;
+            attack = 10;
+            defense = 26;
+            magic = 33.4;
+            magicChance = 30;
+            speed = 57;
+        }else if (number == 60){
+            name = "ChatGPT";
+            title = "The Most AI";
+            health = 128;
+            attack = 18;
+            defense = 22;
+            magic = 34;
+            speed = 62;
+            magicChance = 40;
+        }else if (number == 61){
+            name = "A Rock";
+            title = "beet scissors";
+            health = 90;
+            attack = 40;
+            defense = 30;
+            magic = 1;
+            speed = 1;
+            magicChance = 0;
+        }else if (number == 62){
+            name = "Flygon";
+            title = "the best pokemon";
+            health = 160;
+            attack = 32.57;
+            defense = 28.57;
+            magic = 28.57;
+            magic = 50;
+            speed = 100;
+        }else if (number == 63){
+            name = "Seximal";
+            title = "a.k.a base 6. senary";
+            health = 144;
+            attack = 30;
+            defense = 24;
+            magic = 36;
+            magicChance = 60;
+            speed = 66;
+        }else if (number == 64){
+            name = "Dr. Alex Kaulfuss PhD";
+            title = "The Standard Distributor";
+            health = 170;
+            attack = 32;
+            defense = 30;
+            magic = 32;
+            magicChance = 50;
+            speed = 66;
+        }else if (number == 65){
+            name = "Ms. Kubik";
+            title = "The Legend of Statistics";
+            health = 170;
+            attack = 29;
+            defense = 32;
+            magic = 33;
+            magicChance = 50;
+            speed = 80;
+        }else if (number == 66){
+            name = "Emperor Palpetine";
+            title = "Darth Sidious";
+            health = 200;
+            attack = 1;
+            defense = 30;
+            magic = 35;
+            magicChance = 100;
+            speed = 77;
+        }else if (number == 67){
+            name = "SUPER MACHO MAN";
+            title = "Releaser of Bogus";
+            health = 200;
+            attack = 37;
+            defense = 33;
+            magic = 27;
+            magicChance = 20;
+            speed = 82;
+        }else if (number == 68){
+            name = "Mr. McCuen";
+            title = "The Ulimate Programmer";
+            health = 223;
+            attack = 1;
+            defense = 28;
+            magic = 45;
+            magicChance = 100;
+            speed = 110;
+        }else if (number == 69){
+            name = "Ivan Drago";
+            title = "Fighter from the Soviet Union";
+            health = 250;
+            attack = 45;
+            defense = 32;
+            magic = 26;
+            magicChance = 0;
+            speed = 65;
+        }else if (number == 70){
+            name = "Ganondorf";
+            title = "Demon King";
+            health = 267;
+            attack = 35;
+            defense = 33.5;
+            magic = 35;
+            magicChance = 50;
+            speed = 55;
+        }else if (number == 71){
+            name = "god";
+            title = "subtitle";
+            health = 270;
+            attack = 33;
+            defense = 36;
+            magic = 36;
+            magicChance = 60;
+            speed = 74;
+        }else if (number == 72){
+            health = 100;
+            name = "Kirby";
+            title = "Poyo";
+            attack = 37;
+            defense = 70;
+            magic = 37;
+            magicChance = 50;
+            speed = 100;
+        }else if (number == 73){
+            name = "Ms. Keller";
+            title = "Queen of Computer Science";
+            health = 300;
+            attack = 35;
+            defense = 35;
+            magic = 40;
+            magicChance = 45;
+            speed = 88;
+        }else if (number == 74){
+            name = "John Lennon";
+            title = "Writer of Imagine, Revolution, I am the Walrus";
+            health = 350;
+            attack = 38;
+            defense = 38;
+            magic = 38;
+            magicChance = 50;
+            speed = 112;
+        }else if (number == 75){
+            name = "Mr. Gardner";
+            title = "the strongest teacher";
+            health = 400;
+            attack = 42;
+            defense = 27;
+            magic = 42;
+            magicChance = 42;
+            speed = 89;
+        }else if (number == 76){
+            name = "Grandmama";
+            title = "Guard of Zingbah";
+            health = 400;
+            attack = 39;
+            defense = 39;
+            magic = 42;
+            speed = 111;
+            magicChance = 60;
+        }else if (number == 77){
+            name = "Zing Zing Zingbah";
+            title = "The Supreme Boohbah";
+            health = 1000;
+            attack = 64;
+            defense = 60;
+            magic = 60;
+            speed = 100;
+            magicChance = 50;
         }
     }
 }
