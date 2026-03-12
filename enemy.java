@@ -305,6 +305,9 @@ public class enemy {
     public void takeConst(){
         System.out.println("received damage");
         curHealth -= 30;
+        if (curHealth <= 0){
+            dead = true;
+        }
     }
 
     public int dealMagic(){

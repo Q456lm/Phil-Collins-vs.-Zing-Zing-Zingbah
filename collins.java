@@ -2,9 +2,11 @@ import java.util.ArrayList;
 
 public class collins {
     private String weapon;
+    private String saveWeapon;
     private int health;
     private int curHealth;
     private ArrayList<String> spells;
+    private ArrayList<String> saveSpells;
     private int MP;
     private int curMP; 
     public int speed; 
@@ -15,22 +17,40 @@ public class collins {
     public double tempDefense;
     public double tempSpeed;
     public double tempMagic;
+    public double saveAttack;
+    public double saveDefense;
+    public int saveSpeed;
+    public double saveMagic;
+    public int saveHP;
+    public int saveCurHP;
+    public int saveMP;
+    public int saveCurMP;
     public boolean dead = false;
 
     public collins(){
         weapon = "Wooden Drumsticks";
+        saveWeapon = weapon;
         health = 47;
         curHealth = 47;
+        saveHP = 47;
+        saveCurHP = 47;
         spells = new ArrayList<String>();
+        saveSpells = new ArrayList<String>(spells);
         MP = 5;
+        saveMP = 5;
         curMP = 5;
+        saveCurMP = 5;
         speed = 46;
+        saveSpeed = speed;
         tempSpeed = speed;
         attack = 5.36;
+        saveAttack = 5.36;
         tempAttack = 5.36;
         defense = 5.54;
-        tempDefense = 5.34;
+        saveDefense = 5.54;
+        tempDefense = 5.54;
         magic = 4.23;
+        saveMagic = 4.23;
         tempMagic = 4.23;
         gainSpell();
 
@@ -161,6 +181,7 @@ public class collins {
         }
     }
 
+
     public void useMP(){
         curMP -= 1;
     }
@@ -284,10 +305,19 @@ public class collins {
         System.out.println("Increased attack power");
         tempAttack *= (1 + (tempMagic/10));
     }
+    public void lowerAttack(){
+        System.out.println("Decreased attack power");
+        tempAttack /= (1 + (tempMagic/10));
+    }
 
     public void raiseDefense(){
         System.out.println("Increased defense power");
         tempDefense *= (1 + (tempMagic/10));
+    }
+
+    public void lowerDefense(){
+        System.out.println("Decreased defense power");
+        tempDefense /= (1 + (tempMagic/10));
     }
 
     public void raiseMagic(){
@@ -295,9 +325,27 @@ public class collins {
         tempMagic *= (1 + (tempMagic/10));
     }
 
+    public void lowerMagic(){
+        System.out.println("magic decreased");
+        tempMagic /= (1 + (tempMagic/10));
+    }
+
     public void raiseSpeed(){
         System.out.println("speed increased");
         tempSpeed *= (1 + (tempMagic/10));
+    }
+
+    public void lowerSpeed(){
+        System.out.println("speed decreased");
+        tempSpeed /= (1 + (tempMagic/10));
+    }
+
+    public void lowerAll(){
+        System.out.println("Increased attack power");
+        tempAttack /= (1 + (tempMagic/10));
+        tempDefense /= (1 + (tempMagic/10));
+        tempMagic /= (1 + (tempMagic/10));
+        tempSpeed /= (1 + (tempMagic/10));
     }
 
     public int dealSuperDamage(){
@@ -387,6 +435,59 @@ public class collins {
         return damage;
     }
 
+    public void createSaveStats(){
+        saveWeapon = weapon;
+        saveAttack = attack;
+        saveCurHP = curHealth;
+        saveCurMP = curMP;
+        saveHP = health;
+        saveDefense = defense;
+        saveSpeed = speed;
+        saveMagic = magic;
+        saveMP = MP;
+        saveSpells = new ArrayList<String>(spells);
+    }
 
-    
+    public void changeSaveStats(){
+        weapon = saveWeapon;
+        attack = saveAttack;
+        defense = saveDefense;
+        speed = saveSpeed;
+        health = saveHP;
+        magic = saveMagic;
+        curHealth = saveCurHP;
+        MP = saveMP;
+        curMP = saveCurMP;
+        spells = new ArrayList<String>(saveSpells);
+    }
+
+    public void takeConst1(){
+        System.out.println("received damage");
+        curHealth -= 30;
+        if (curHealth <= 0){
+            dead = true;
+        }
+    }
+    public void takeConst2(){
+        System.out.println("received damage");
+        curHealth -= 40;
+        if (curHealth <= 0){
+            dead = true;
+        }
+    }
+    public void takeConst3(){
+        System.out.println("received damage");
+        curHealth -= 50;
+        if (curHealth <= 0){
+            dead = true;
+        }
+    }  
+
+    public void takeConst4(){
+        System.out.println("received damage");
+        curHealth -= 65;
+        if (curHealth <= 0){
+            dead = true;
+        }
+    }  
 }
