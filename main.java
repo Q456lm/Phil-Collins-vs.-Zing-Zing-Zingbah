@@ -158,7 +158,7 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
             System.out.println("Starting game...");
             waitTime(6);
             notStarted = false;
-            game();
+            gameLoop();
         }else if (start == 2){
             tutorial();
         }else if (start == 3){
@@ -167,7 +167,7 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
             System.out.println("Starting game...");
             waitTime(6);
             notStarted = false;
-            game();
+            gameLoop();
         }
     }
     }
@@ -175,218 +175,279 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
     public static void gameLoop(){
         int floor = 1;
         enemy[] enemies = new enemy[4];
-        while (true){
+        int reqNums;
+        boolean alive = true;
+        collins phil = new collins();
+        int enc = 0;
+        while (alive){
             if (floor == 1 || floor == 2){
+                reqNums = 4;
                 enemies[0] = new enemy("quint");
                 enemies[1] = new enemy("maxwell");
                 enemies[2] = new enemy("maddy");
                 enemies[3] = new enemy("troy");
             }else if (floor == 3 || floor == 4){
+                reqNums = 4;
                 enemies[0] = new enemy("quint");
                 enemies[1] = new enemy("maxwell");
                 enemies[2] = new enemy("marcus");
                 enemies[3] = new enemy("troy");
             }else if (floor == 5 || floor == 6){
+                reqNums = 4;
                 enemies[0] = new enemy("marcus c.");
                 enemies[1] = new enemy("maxwell");
                 enemies[2] = new enemy("troy");
                 enemies[3] = new enemy("bianca");
             }else if (floor == 7 || floor == 8){
+                reqNums = 5;
                 enemies[0] = new enemy("marcus c.");
                 enemies[1] = new enemy("troy");
                 enemies[2] = new enemy("bianca");
                 enemies[3] = new enemy("rahul");
             }else if (floor == 9 || floor == 10){
+                reqNums = 5;
                 enemies[0] = new enemy("bianca");
                 enemies[1] = new enemy("rahul");
                 enemies[2] = new enemy("ayah");
                 enemies[3] = new enemy("khani");
             }else if (floor == 11 || floor == 12){
+                reqNums = 6;
                 enemies[0] = new enemy("bianca");
                 enemies[1] = new enemy("gauhar");
                 enemies[2] = new enemy("ayah");
                 enemies[3] = new enemy("khani");
             }else if (floor == 13 || floor == 14){
+                reqNums = 7;
                 enemies[0] = new enemy("gauhar");
                 enemies[1] = new enemy("khani");
                 enemies[2] = new enemy("ayah");
                 enemies[3] = new enemy("troy");
             }else if (floor == 15 || floor == 16){
+                reqNums = 8;
                 enemies[0] = new enemy("gauhar");
                 enemies[1] = new enemy("ayah");
                 enemies[2] = new enemy("khani");
                 enemies[3] = new enemy("rahul");
             }else if (floor == 17 || floor == 18){
+                reqNums = 9;
                 enemies[0] = new enemy("gauhar");
                 enemies[1] = new enemy("simone");
                 enemies[2] = new enemy("elizabeth");
                 enemies[3] = new enemy("khani");
             }else if (floor == 19 || floor == 20){
+                reqNums = 8;
                 enemies[0] = new enemy("karan");
                 enemies[1] = new enemy("simone");
                 enemies[2] = new enemy("elizabeth");
                 enemies[3] = new enemy("ayah");
             }else if (floor == 21 || floor == 22){
+                reqNums = 9;
                 enemies[0] = new enemy("karan");
                 enemies[1] = new enemy("elizabeth");
                 enemies[2] = new enemy("simone");
                 enemies[3] = new enemy("sham");
             }else if (floor == 23 || floor == 24){
+                reqNums = 10;
                 enemies[0] = new enemy("karan");
                 enemies[1] = new enemy("elizabeth");
                 enemies[2] = new enemy("nayan");
                 enemies[3] = new enemy("gauhar");
             }else if (floor == 25 || floor == 26){
+                reqNums = 11;
                 enemies[0] = new enemy("karan");
                 enemies[1] = new enemy("nayan");
                 enemies[2] = new enemy("rudra");
                 enemies[3] = new enemy("gauhar");
             }else if (floor == 27 || floor == 28){
+                reqNums = 12;
                 enemies[0] = new enemy("rudra");
                 enemies[1] = new enemy("nayan");
                 enemies[2] = new enemy("karan");
                 enemies[3] = new enemy("gauhar");
             }else if (floor == 29 || floor == 30){
+                reqNums = 11;
                 enemies[0] = new enemy("rudra");
                 enemies[1] = new enemy("nayan");
                 enemies[2] = new enemy("simone");
                 enemies[3] = new enemy("gauhar");
             }else if (floor == 31 || floor == 32){
+                reqNums = 10;
                 enemies[0] = new enemy("rudra");
                 enemies[1] = new enemy("nayan");
                 enemies[2] = new enemy("simone");
                 enemies[3] = new enemy("karim");
             }else if (floor == 33 || floor == 34){
+                reqNums = 12;
                 enemies[0] = new enemy("nayan");
                 enemies[1] = new enemy("rudra");
                 enemies[2] = new enemy("karim");
                 enemies[3] = new enemy("elizabeth");
             }else if (floor == 35 || floor == 36){
+                reqNums = 13;
                 enemies[0] = new enemy("nayan");
                 enemies[1] = new enemy("karim");
                 enemies[2] = new enemy("karan");
                 enemies[3] = new enemy("rudra");
             }else if (floor == 37 || floor == 38){
+                reqNums = 14;
                 enemies[0] = new enemy("nayan");
                 enemies[1] = new enemy("karim");
                 enemies[2] = new enemy("karan");
                 enemies[3] = new enemy("Marcus Alexio");
             }else if (floor == 39 || floor == 40){
+                reqNums = 11;
                 enemies[0] = new enemy("karim");
                 enemies[1] = new enemy("karan");
                 enemies[2] = new enemy("Marcus Alexio");
                 enemies[3] = new enemy("sham");
             }else if (floor == 41 || floor == 42){
+                reqNums = 11;
                 enemies[0] = new enemy("Marcus Alexio");
                 enemies[1] = new enemy("karan");
                 enemies[2] = new enemy("melo");
                 enemies[3] = new enemy("quint");
             }else if (floor == 43 || floor == 44){
+                reqNums = 10;
                 enemies[0] = new enemy("karan");
                 enemies[1] = new enemy("Marcus Alexio");
                 enemies[2] = new enemy("melo");
                 enemies[3] = new enemy("rudra");
             }else if (floor == 45 || floor == 46){
+                reqNums = 16;
                 enemies[0] = new enemy("karan");
                 enemies[1] = new enemy("melo");
                 enemies[2] = new enemy("Marcus Alexio");
                 enemies[3] = new enemy("jessica");
             }else if (floor == 47 || floor == 48){
+                reqNums = 16;
                 enemies[0] = new enemy("jessica");
                 enemies[1] = new enemy("melo");
                 enemies[2] = new enemy("Marcus Alexio");
                 enemies[3] = new enemy("sham");
             }else if (floor == 49 || floor == 50){
+                reqNums = 17;
                 enemies[0] = new enemy("melo");
                 enemies[1] = new enemy("jessica");
                 enemies[2] = new enemy("Marcus Alexio");
                 enemies[3] = new enemy("gabe");
             }else if (floor == 51 || floor == 52){
+                reqNums = 15;
                 enemies[0] = new enemy("Marcus Alexio");
                 enemies[1] = new enemy("jessica");
                 enemies[2] = new enemy("gabe");
                 enemies[3] = new enemy("melo");
             }else if (floor == 53 || floor == 54){
+                reqNums = 17;
                 enemies[0] = new enemy("melo");
                 enemies[1] = new enemy("jessica");
                 enemies[2] = new enemy("gabe");
                 enemies[3] = new enemy("gabe");
             }else if (floor == 55 || floor == 56){
+                reqNums = 17;
                 enemies[0] = new enemy("melo");
                 enemies[1] = new enemy("gabe");
                 enemies[2] = new enemy("jessica");
                 enemies[3] = new enemy("sam");
             }else if (floor == 57 || floor == 58){
+                reqNums = 19;
                 enemies[0] = new enemy("jessica");
                 enemies[1] = new enemy("gabe");
                 enemies[2] = new enemy("sam");
                 enemies[3] = new enemy("sam");
             }else if (floor == 59 || floor == 60){
+                reqNums = 19;
                 enemies[0] = new enemy("gabe");
                 enemies[1] = new enemy("jessica");
                 enemies[2] = new enemy("sam");
                 enemies[3] = new enemy("biruk");
             }else if (floor == 61 || floor == 62){
+                reqNums = 16;
                 enemies[0] = new enemy("gabe");
                 enemies[1] = new enemy("biruk");
                 enemies[2] = new enemy("sam");
                 enemies[3] = new enemy("afton");
             }else if (floor == 63 || floor == 64){
+                reqNums = 20;
                 enemies[0] = new enemy("alex");
                 enemies[1] = new enemy("sam");
                 enemies[2] = new enemy("biruk");
                 enemies[3] = new enemy("afton");
             }else if (floor == 65 || floor == 66){
+                reqNums = 21;
                 enemies[0] = new enemy("alex");
                 enemies[1] = new enemy("afton");
                 enemies[2] = new enemy("sham");
                 enemies[3] = new enemy("sam");
             }else if (floor == 67 || floor == 68){
+                reqNums = 25;
                 enemies[0] = new enemy("alex");
                 enemies[1] = new enemy("afton");
                 enemies[2] = new enemy("sam");
                 enemies[3] = new enemy("evan");
             }else if (floor == 69 || floor == 70){
+                reqNums = 25;
                 enemies[0] = new enemy("biruk");
                 enemies[1] = new enemy("afton");
                 enemies[2] = new enemy("sam");
                 enemies[3] = new enemy("evan");
             }else if (floor == 71 || floor == 72){
+                reqNums = 25;
                 enemies[0] = new enemy("biruk");
                 enemies[1] = new enemy("afton");
                 enemies[2] = new enemy("evan");
                 enemies[3] = new enemy("sam");
             }else if (floor == 73 || floor == 74){
+                reqNums = 30;
                 enemies[0] = new enemy("biruk");
                 enemies[1] = new enemy("afton");
                 enemies[2] = new enemy("evan");
                 enemies[3] = new enemy("christopher");
             }else if (floor == 75){
+                reqNums = 35;
                 enemies[0] = new enemy("biruk");
                 enemies[1] = new enemy("evan");
                 enemies[2] = new enemy("christopher");
                 enemies[3] = new enemy("maxwell2");
             }else if (floor == 76){
+                reqNums = 42;
                 enemies[0] = new enemy("evan");
                 enemies[1] = new enemy("christopher");
                 enemies[2] = new enemy("maxwell2");
                 enemies[3] = new enemy("afton2");
             }else if (floor == 77){
+                reqNums = 3;
                 enemies[0] = new enemy("maxwell2");
                 enemies[1] = new enemy("gabe2");
                 enemies[2] = new enemy("afton2");
                 enemies[3] = new enemy("maddy2");
+            }else{
+               reqNums = 10000000;
+                enemies[0] = new enemy("maxwell2");
+                enemies[1] = new enemy("gabe2");
+                enemies[2] = new enemy("afton2");
+                enemies[3] = new enemy("maddy2"); 
+            }
+
+            if (floor > 77){
+                break;
+            }
+
+            if (enc >= reqNums){
+                alive = fightBoss(floor, phil);
+                floor++;
+                enc = 0;
+            }else{
+                alive = game(enemies, phil);
+                enc++;
             }
 
 
         }
     }
 
-    public static void game(enemy[] enemyList){
+    public static boolean game(enemy[] enemyList, collins phil){
         clear();
         boolean alive = true;
-        collins phil = new collins();
-        while (alive){
         int randy = random(1,100);
         enemy curEnemey;
         if (randy > 50){
@@ -566,7 +627,7 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
                 }else{
                     continue;
                 }
-                }
+                }}
                 else if (choice == 4){
                     waitTime(2);
                     System.out.println();
@@ -582,7 +643,6 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
             }
         }
     }
-}
     if (alive){
     int randyi = random(1,100);
     if (randyi > 85){
@@ -625,16 +685,13 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
     System.out.println();
     waitTime(3);
     clear();
-        }
 
-
+    return alive;
     }
 
-    public static void fightBoss(int floor){
+    public static boolean fightBoss(int floor,collins phil){
         clear();
         boolean alive = true;
-        collins phil = new collins();
-        while (alive){
         bosses curEnemey = new bosses(floor);
         
         int randy = random(1,100);
@@ -680,17 +737,17 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
                         waitTime(1);
                         curEnemey.takeMagic(yourDamage);
                     }
-                    else if (spell == 2){
-                        boolean kill = phil.instaKill();
-                        if (kill){
-                            curEnemey.takeDamage(10000000);
-                            waitTime(1);
-                            System.out.println("instant death");
-                        }else{
-                            waitTime(1);
-                            System.out.println("miss");
-                        }
-                    }else if (spell == 3){
+                    //else if (spell == 2){
+                        //boolean kill = phil.instaKill();
+                        //if (kill){
+                            //curEnemey.takeDamage(10000000);
+                            //waitTime(1);
+                            //System.out.println("instant death");
+                        //}else{
+                            //waitTime(1);
+                            //System.out.println("miss");
+                        //}
+                    else if (spell == 3){
                         curEnemey.lowerDef();
                     }else if (spell == 4){
                         phil.healDamage();
@@ -753,8 +810,8 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
                 enemyDamage = curEnemey.dealDamage();
                 phil.takeDamage(enemyDamage);
                 //}else{
-                    enemyDamage = curEnemey.dealMagic();
-                    phil.takeMagic(enemyDamage);
+                    //enemyDamage = curEnemey.dealMagic();
+                    //phil.takeMagic(enemyDamage);
                 //}
                 if (phil.dead){
                     waitTime(3);
@@ -775,17 +832,17 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
                         waitTime(1);
                         curEnemey.takeMagic(yourDamage);
                     }
-                    else if (spell == 2){
-                        boolean kill = phil.instaKill();
-                        if (kill){
-                            curEnemey.takeDamage(10000000);
-                            waitTime(1);
-                            System.out.println("instant death");
-                        }else{
-                            waitTime(1);
-                            System.out.println("miss");
-                        }
-                    }else if (spell == 3){
+                    //else if (spell == 2){
+                        //boolean kill = phil.instaKill();
+                        //if (kill){
+                            //curEnemey.takeDamage(10000000);
+                            //waitTime(1);
+                            //System.out.println("instant death");
+                        //}else{
+                            //waitTime(1);
+                            //System.out.println("miss");
+                        //}
+                    else if (spell == 3){
                         curEnemey.lowerDef();
                     }else if (spell == 4){
                         phil.healDamage();
@@ -868,6 +925,7 @@ System.out.println("@@@@@@@@@@@@@@@@@%%#+=--=------:::::.....:::::::::::::::....
     System.out.println();
     waitTime(3);
     clear();
+    return alive;
 
     }
 
