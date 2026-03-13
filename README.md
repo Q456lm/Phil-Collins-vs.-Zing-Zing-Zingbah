@@ -6,8 +6,7 @@
 
 Each of the games 77 floors has 4 types of enemies. You fight a various amount of enemies than a boss. At the top is Zing Zingbah. As you defeat enemies you will upgrade your weapon, gain stats, magic, and heal yourself. Can you make it through all 77 floors?
 
-Not Added Yet but intended features:
-
+Not Added Yet but intended features:<br/>
 Password System <br/>
 New Game + <br/>
 Adding in a few more enemies <br/>
@@ -21,4 +20,5 @@ I'm sorry this couldn't be a true README but I do intend to work on this game mo
 No AI was used for coding, story, images, gameplay suggestions,etc. <br/>
 The only time AI was used was so ChatGPT could generate its own stats and movesets.
 
+Run main.java to play, you can do so by installing Java in GitHubs code spaces or using VS Code/IntelliJ or any other IDE that can run Java
 
