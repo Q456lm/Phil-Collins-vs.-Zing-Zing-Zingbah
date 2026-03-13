@@ -6,6 +6,11 @@
 
 Each of the games 77 floors has 4 types of enemies. You fight a various amount of enemies than a boss. At the top is Zing Zingbah. As you defeat enemies you will upgrade your weapon, gain stats, magic, and heal yourself. Can you make it through all 77 floors?
 
+Top Play <br/>
+Clone This Link: https://github.com/Q456lm/Phil-Collins-vs.-Zing-Zing-Zingbah<br/>
+Clone in IDE that can run Java (IntelliJ, VSCode (Make Sure Java is Installed), etc.)<br/>
+Run main.java, you may get temperorary errors so try again if you can't run.
+
 Not Added Yet but intended features:<br/>
 Password System <br/>
 New Game + <br/>
@@ -20,8 +25,4 @@ I'm sorry this couldn't be a true README but I do intend to work on this game mo
 No AI was used for coding, story, images, gameplay suggestions,etc. <br/>
 The only time AI was used was so ChatGPT could generate its own stats and movesets.
 
-Top Play <br/>
-Clone This Link: https://github.com/Q456lm/Phil-Collins-vs.-Zing-Zing-Zingbah<br/>
-Clone in IDE that can run Java (IntelliJ, VSCode (Make Sure Java is Installed), etc.)<br/>
-Run main.java, you may get temperorary errors so try again if you can't run.
 
