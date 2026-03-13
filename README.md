@@ -21,7 +21,7 @@ No AI was used for coding, story, images, gameplay suggestions,etc. <br/>
 The only time AI was used was so ChatGPT could generate its own stats and movesets.
 
 Top Play <br/>
-Clone This Link: https://github.com/Q456lm/Phil-Collins-vs.-Zing-Zing-Zingbah<\br>
-Clone in IDE that can run Java (IntelliJ, VSCode (Make Sure Java is Installed), etc.)<\br>
+Clone This Link: https://github.com/Q456lm/Phil-Collins-vs.-Zing-Zing-Zingbah<br/>
+Clone in IDE that can run Java (IntelliJ, VSCode (Make Sure Java is Installed), etc.)<br/>
 Run main.java, you may get temperorary errors so try again if you can't run.
 
