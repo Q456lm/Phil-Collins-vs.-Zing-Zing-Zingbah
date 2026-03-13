@@ -143,8 +143,10 @@ public class main {
         clear();
     }
 
+    public static boolean notStarted = true;
+    public static boolean reset = false;
+
     public static void menu() {
-        boolean notStarted = true;
         System.out.println("For the full experience, enter full screen");
         waitTime(3);
         clear();
@@ -159,7 +161,7 @@ public class main {
             System.out.println("PHIL COLLINS VS ZING ZING ZINGBAH");
             waitTime(2);
             System.out.println();
-            int start = intInput("Ready to get started?\n1. Start the game\n2. How to play\n3. Credits\n: ");
+            int start = intInput("Ready to get started?\n1. Start the game\n2. How to play\n3. Credits\n4. stop\n:");
             if (start == 1) {
                 System.out.println(floor);
                 phil.dead = false;
@@ -170,7 +172,9 @@ public class main {
                 tutorial();
             } else if (start == 3) {
                 credits();
-            } else {
+            } else if (start == 4){
+                break;
+            }else {
                 phil.dead = false;
                 System.out.println("Starting game...");
                 waitTime(6);
@@ -178,6 +182,48 @@ public class main {
                 floor = gameLoop(floor,phil);
             }
         }
+        if (!notStarted){
+        clear();
+        waitTime(5);
+        System.out.println("The Supereme Boohbah was defeated");
+        waitTime(1);
+        System.out.println();
+        System.out.println("Peace has come to this land.");
+        waitTime(1);
+        System.out.println();
+        System.out.println("But Zing Zing Zingbah never really dies");
+        waitTime(3);
+        clear();
+        System.out.println("                                       .:::---:::.                                               \r\n" + //
+                        "                                       ::::-----------::                                            \r\n" + //
+                        "                                     ::::----------------:                                          \r\n" + //
+                        "                                     ::--------------------                                         \r\n" + //
+                        "                                    ::---------------===---                                         \r\n" + //
+                        "                                    ::--------------==-==--:                                        \r\n" + //
+                        "                                    ::-::----------=--==----                                        \r\n" + //
+                        "                                   ::::------------======----                                       \r\n" + //
+                        "                                  :::------------====**+==---:                                      \r\n" + //
+                        "                                  ::--+*%%#=----===*%@@#+==--                                       \r\n" + //
+                        "                                 .::--+%%#*#=---===**%@@#==--::                                     \r\n" + //
+                        "                                ..:---=*%##=-----===*###===---:..                                   \r\n" + //
+                        "                               ...::::-------------------::::::::.                                  \r\n" + //
+                        "                              ....:::::::::::::::::::::::::::::::::                                 \r\n" + //
+                        "                             .......::::::::::..:---------------:::.                                \r\n" + //
+                        "                            .....:::::::::--:-:::::-------------::::.                               \r\n" + //
+                        "                           ....:::::::::::--:---:-----------------:::                               \r\n" + //
+                        "                          .....:::::::::::::::::::.:::-------------::.                              \r\n" + //
+                        "                          ..:::::::::::::-:::--------------::-------:::                             \r\n" + //
+                        "                         .:::::::::::-:::::-:::-:---:::::::-----::----::.                           \r\n" + //
+                        "                      ....::::::--::::::--:::::::::::------------==-----::.                         \r\n" + //
+                        "                     .:..::::::::----:-::::------------:----=======-------::.                       \r\n" + //
+                        "                   ..::::::---:::::-:--:::::-::-::------==--====-========---::.                     \r\n" + //
+                        "                  .::::-::::----:-----::-:---:---------------===-==-=====----::.                    \r\n" + //
+                        "                 .:::::--:------::::---:-:::::----::----=-----===-==========--::.                   \r\n" + //
+                        "                .::::----:------:::---::---:-----:----:--=----======-=======-=--:::                 \r\n" + //
+                        "              .:::-------------------:--------::-----:--=----=-=--==============--::    ");
+        System.out.println("Thank you for playing!");
+        }
+
     }
 
     public static int gameLoop(int floor, collins phil) {
@@ -186,6 +232,7 @@ public class main {
         boolean alive = true;
         int enc = 0;
         while (alive) {
+            phil.changeHP();
             if (floor == 1 || floor == 2) {
                 reqNums = 4;
                 enemies[0] = new enemy("quint");
@@ -435,7 +482,7 @@ public class main {
             }
 
             if (floor > 77) {
-                break;
+                notStarted = false;
             }
 
             if (enc >= reqNums) {
@@ -447,7 +494,13 @@ public class main {
                 enc = 0;
             } else {
                 alive = game(enemies, phil);
-                if (alive){
+                if (reset){
+                    System.out.println("Encounter Reset");
+                    waitTime(1);
+                    reset = false;
+                    clear();
+                }
+                else if (alive){
                     enc++;
                 }
             }
@@ -531,7 +584,9 @@ public class main {
                                 phil.healDamage();
                             } else if (spell == 5) {
                                 waitTime(2);
-                                System.out.println("Move Failed");
+                                phil.fixHP();
+                                reset = true;
+                                break;
                             } else if (spell == 6) {
                                 phil.raiseSpeed();
                             } else if (spell == 7) {
@@ -621,7 +676,9 @@ public class main {
                                 phil.healDamage();
                             } else if (spell == 5) {
                                 waitTime(2);
-                                System.out.println("Move Failed");
+                                phil.fixHP();
+                                reset = true;
+                                break;
                             } else if (spell == 6) {
                                 phil.raiseSpeed();
                             } else if (spell == 7) {
@@ -655,7 +712,7 @@ public class main {
                 }
             }
         }
-        if (alive) {
+        if (alive && !reset) {
             int randyi = random(1, 100);
             if (randyi > 85) {
                 System.out.println();
@@ -690,6 +747,9 @@ public class main {
             } else if (randyi > 1) {
                 System.out.println("complete restoration");
                 phil.heal();
+            }else{
+                System.out.println("You have mastered the ultimate spell: That's All.");
+                phil.gainSuperSpell();
             }
         }
 

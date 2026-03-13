@@ -3897,7 +3897,7 @@ System.out.println("                                                            
                 specialMove = spell.name;
             }
         }
-        System.out.println(name +"used: "+specialMove);
+        System.out.println(name +" used: "+specialMove);
     }
     
     public void lowerDef(){

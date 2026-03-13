@@ -5,10 +5,12 @@ public class collins {
     private String saveWeapon;
     private int health;
     private int curHealth;
+    private int tempCurHealth;
     private ArrayList<String> spells;
     private ArrayList<String> saveSpells;
     private int MP;
     private int curMP; 
+    private int tempCurMP;
     public int speed; 
     private double attack;
     private double defense;
@@ -32,6 +34,7 @@ public class collins {
         saveWeapon = weapon;
         health = 47;
         curHealth = 47;
+        tempCurHealth = 47;
         saveHP = 47;
         saveCurHP = 47;
         spells = new ArrayList<String>();
@@ -39,6 +42,7 @@ public class collins {
         MP = 5;
         saveMP = 5;
         curMP = 5;
+        tempCurMP = 5;
         saveCurMP = 5;
         speed = 46;
         saveSpeed = speed;
@@ -59,11 +63,20 @@ public class collins {
     public void gainHealth(){
         health += 1;
         curHealth += 1;
+
+        if (health > 999){
+            health -= 1;
+            curHealth -=1;
+        }
     }
 
     public void gainHealth(int health){
         this.health += health;
         this.curHealth += health;
+        if (health > 999){
+            this.health -= health;
+            curHealth -= health;
+        }
     }
 
     public void heal(){
@@ -82,51 +95,91 @@ public class collins {
     public void gainMP(){
         MP += 1;
         curMP += 1;
+        if (MP > 999){
+            MP -= 1;
+            curMP -=1;
+        }
     }
 
     public void gainMP(int MP){
         this.MP += MP;
         this.curMP += MP;
+        if (MP > 999){
+            this.MP -= MP;
+            this.curMP -=1;
+        }
     }
 
     public void gainAttack(){
         attack += 0.1;
         tempAttack += 0.1;
+        if (attack > 99){
+            attack -= 0.1;
+            tempAttack -= 0.1;
+        }
     }
 
     public void gainAttack(double attack){
         this.attack += attack;
         this.tempAttack += attack;
+        if (attack > 99){
+            this.attack -= attack;
+            tempAttack -= attack;
+        }
     }
 
     public void gainDefense(){
         defense += 0.1;
         tempDefense += 0.1;
+        if (defense > 99){
+            defense -= 0.1;
+            tempDefense -= 0.1;
+        }
     }
 
     public void gainDefense(double defense){
         this.defense += defense;
         this.tempDefense += defense;
+        if (defense > 99){
+            this.defense -= defense;
+            tempDefense -= defense;
+        }
     }
 
     public void gainMagic(){
         magic += 0.1;
         tempMagic += 0.1;
+        if (magic > 99){
+            magic -= 0.1;
+            tempMagic -= 0.1;
+        }
     }
 
     public void gainMagic(double magic){
         this.magic += magic;
         this.tempMagic += magic;
+        if (magic > 99){
+            this.magic -= magic;
+            tempMagic -= magic;
+        }
     }
 
     public void gainSpeed(){
         speed += 1;
         tempSpeed += 1;
+        if (speed > 999){
+            speed -= 1;
+            tempSpeed -= 1;
+        }
     }
 
     public void gainSpeed(int speed){
         this.speed += speed;
         tempSpeed += speed;
+        if (speed > 999){
+            this.speed -= speed;
+            tempSpeed -= speed;
+        }
     }
 
     public void resestTemps(){
@@ -134,6 +187,16 @@ public class collins {
         this.tempDefense = defense;
         this.tempMagic = magic;
         this.tempSpeed = speed;
+    }
+
+    public void changeHP(){
+        tempCurHealth = curHealth;
+        tempCurMP = curMP;
+    }
+
+    public void fixHP(){
+        curHealth = tempCurHealth;
+        curMP = tempCurMP;
     }
 
     public void gainSpell(){
@@ -158,6 +221,18 @@ public class collins {
             if (count == 30){
                 cont = false;
             }
+        }
+    }
+
+    public void gainSuperSpell(){
+        boolean cont = true;
+        for (String spell:spells){
+                if (spell.equals("That's All")){
+                    cont = false;
+                }
+        }
+        if (cont){
+            spells.add("That's All");
         }
     }
 
