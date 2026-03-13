@@ -747,7 +747,7 @@ public class main {
             } else if (randyi > 1) {
                 System.out.println("complete restoration");
                 phil.heal();
-            }else{
+            }else if (randyi == 1){
                 System.out.println("You have mastered the ultimate spell: That's All.");
                 phil.gainSuperSpell();
             }
