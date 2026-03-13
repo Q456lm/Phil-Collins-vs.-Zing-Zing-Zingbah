@@ -20,5 +20,5 @@ I'm sorry this couldn't be a true README but I do intend to work on this game mo
 No AI was used for coding, story, images, gameplay suggestions,etc. <br/>
 The only time AI was used was so ChatGPT could generate its own stats and movesets.
 
-Run main.java to play, you can do so by installing Java in GitHubs code spaces or using VS Code/IntelliJ or any other IDE that can run Java
+Run main.java to play, you can do so by installing Java in GitHub codespaces or using VS Code/IntelliJ or any other IDE that can run Java
 
