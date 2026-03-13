@@ -1,7 +1,7 @@
 # Phil Collins vs. Zing Zing Zingbah Offical Strategy Guide.
 <h2>Tips and Tricks to help you climb all 77 floors and defeat Zing Zing Zingbah</h2>
 
-![alt text](PhilZingZingCollins.png "Logo Title Text 1")
+![alt text](Phil%20Zing%20Zing%20Collins.png "Logo Title Text 1")
 
 
 Each of the games 77 floors has 4 types of enemies. You fight a various amount of enemies than a boss. At the top is Zing Zingbah. As you defeat enemies you will upgrade your weapon, gain stats, magic, and heal yourself. Can you make it through all 77 floors?
