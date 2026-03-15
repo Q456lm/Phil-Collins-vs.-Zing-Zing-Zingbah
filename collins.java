@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 public class collins {
@@ -19,6 +20,7 @@ public class collins {
     public double tempDefense;
     public double tempSpeed;
     public double tempMagic;
+    public double tempMagicCount;
     public double saveAttack;
     public double saveDefense;
     public int saveSpeed;
@@ -56,7 +58,60 @@ public class collins {
         magic = 4.23;
         saveMagic = 4.23;
         tempMagic = 4.23;
+        tempMagicCount = 1;
         gainSpell();
+
+    }
+
+    public void setStats(int weaponNum, int healthNum, int curHealthNum, int MPNum, int curMPNum, int speedNum, int attackNum, int defenseNum, int magicNum, ArrayList<String> newSpells)
+    {
+        if (weaponNum == 0){
+            weapon = "Wooden Drumsticks";
+        }else if (weaponNum == 1){
+            weapon = "Stone Drumsticks";
+        }else if (weaponNum == 2){
+            weapon = "Steel Drumsticks";
+        }else if (weaponNum == 3){
+            weapon = "Plastic Drumsticks";
+        }else if (weaponNum == 4){
+            weapon = "Blood Drumsticks";
+        }else if (weaponNum == 5){
+            weapon = "Crystal Drumsticks";
+        }else if (weaponNum == 6){
+            weapon = "Phil's Signiture Drumsticks";
+        }else if (weaponNum == 7){
+            weapon = "Ringo's Signiture Drumsticks";
+        }else if (weaponNum == 8){
+            weapon = "Microphone Drumsticks";
+        }else if (weaponNum == 9){
+            weapon = "Boohbah Drumsticks";
+        }
+
+        saveWeapon = weapon;
+        health = healthNum;
+        curHealth = curHealthNum;
+        tempCurHealth = curHealthNum;
+        saveHP = healthNum;
+        saveCurHP = curHealthNum;
+        spells = newSpells;
+        saveSpells = new ArrayList<String>(spells);
+        MP = MPNum;
+        saveMP = MPNum;
+        curMP = curMPNum;
+        tempCurMP = curMPNum;
+        saveCurMP = curMPNum;
+        speed = speedNum;
+        saveSpeed = speed;
+        tempSpeed = speed;
+        attack = attackNum;
+        saveAttack = attackNum;
+        tempAttack = attackNum;
+        defense = defenseNum;
+        saveDefense = defenseNum;
+        tempDefense = defenseNum;
+        magic = magicNum;
+        saveMagic = magicNum;
+        tempMagic = magicNum;
 
     }
 
@@ -187,6 +242,7 @@ public class collins {
         this.tempDefense = defense;
         this.tempMagic = magic;
         this.tempSpeed = speed;
+        this.tempMagicCount = 1;
     }
 
     public void changeHP(){
@@ -320,13 +376,14 @@ public class collins {
             }
 
         }
-        System.out.println("Click enter to exit");
+        System.out.println("Enter 0 to exit");
     }
-    
+
     public int chooseSpells(){
         displaySpells();
         int whichSpell = main.intInput("Which spell would like to use it? ")-1;
-        if (whichSpell >= spells.size() || curMP <= 0){
+        if (whichSpell >= spells.size() || whichSpell < 0 || curMP <= 0 || (curMP <= 4 && spells.get(whichSpell).equals("That's All"))){
+            System.out.println("Spells are unavailable.");
             return 11;
         }
         else if (spells.get(whichSpell).equals("In The Air Tonight")){
@@ -376,6 +433,278 @@ public class collins {
         }
     }
 
+    public String generatePassword(int level){
+        String password = "";
+        if (level == 2){
+            password += "room";
+        }else if (level == 3){
+            password += "sevn";
+        }else if (level == 4){
+            password += "film";
+        }else if (level == 5){
+            password += "sing";
+        }else if (level == 6){
+            password += "wars";
+        }else if (level == 7){
+            password += "hits";
+        }else if (level == 8){
+            password += "cute";
+        }else if (level == 9){
+            password += "back";
+        }else if (level == 10){
+            password += "sick";
+        }else if (level == 11){
+            password += "chef";
+        }else if (level == 12){
+            password += "lion";
+        }else if (level == 13){
+            password += "luck";
+        }else if (level == 14){
+            password += "make";
+        }else if (level == 15){
+            password += "dive";
+        }else if (level == 16){
+            password += "phil";
+        }else if (level == 17){
+            password += "card";
+        }else if (level == 18){
+            password += "fake";
+        }else if (level == 19){
+            password += "mama";
+        }else if (level == 20){
+            password += "twee";
+        }else if (level == 21){
+            password += "fire";
+        }else if (level == 22){
+            password += "wett";
+        }else if (level == 23){
+            password += "ball";
+        }else if (level == 24){
+            password += "dady";
+        }else if (level == 25){
+            password += "booo";
+        }else if (level == 26){
+            password += "thre";
+        }else if (level == 27){
+            password += "mine";
+        }else if (level == 28){
+            password += "hopp";
+        }else if (level == 29){
+            password += "berg";
+        }else if (level == 30){
+            password += "mage";
+        }else if (level == 31){
+            password += "rawr";
+        }else if (level == 32){
+            password += "king";
+        }else if (level == 33){
+            password += "tall";
+        }else if (level == 34){
+            password += "tiny";
+        }else if (level == 35){
+            password += "rich";
+        }else if (level == 36){
+            password += "copy";
+        }else if (level == 37){
+            password += "huge";
+        }else if (level == 38){
+            password += "rock";
+        }else if (level == 39){
+            password += "well";
+        }else if (level == 40){
+            password += "fish";
+        }else if (level == 41){
+            password += "lord";
+        }else if (level == 42){
+            password += "hike";
+        }else if (level == 43){
+            password += "push";
+        }else if (level == 44){
+            password += "dumb";
+        }else if (level == 45){
+            password += "kong";
+        }else if (level == 46){
+            password += "fade";
+        }else if (level == 47){
+            password += "rock";
+        }else if (level == 48){
+            password += "rain";
+        }else if (level == 49){
+            password += "suck";
+        }else if (level == 50){
+            password += "peak";
+        }else if (level == 51){
+            password += "sxsv";
+        }else if (level == 52){
+            password += "gabe";
+        }else if (level == 53){
+            password += "f123";
+        }else if (level == 54){
+            password += "trip";
+        }else if (level == 55){
+            password += "elon";
+        }else if (level == 56){
+            password += "fall";
+        }else if (level == 57){
+            password += "free";
+        }else if (level == 58){
+            password += "left";
+        }else if (level == 59){
+            password += "what";
+        }else if (level == 60){
+            password += "talk";
+        }else if (level == 61){
+            password += "high";
+        }else if (level == 62){
+            password += "best";
+        }else if (level == 63){
+            password += "toki";
+        }else if (level == 64){
+            password += "cube";
+        }else if (level == 65){
+            password += "stat";
+        }else if (level == 66){
+            password += "jedi";
+        }else if (level == 67){
+            password += "troy";
+        }else if (level == 68){
+            password += "java";
+        }else if (level == 69){
+            password += "nice";
+        }else if (level == 70){
+            password += "link";
+        }else if (level == 71){
+            password += "weak";
+        }else if (level == 72){
+            password += "pink";
+        }else if (level == 73){
+            password += "wake";
+        }else if (level == 74){
+            password += "choo";
+        }else if (level == 75){
+            password += "mess";
+        }else if (level == 76){
+            password += "cook";
+        }else if (level == 77){
+            password += "none";
+        }
+
+        if (weapon.equals("Wooden Drumsticks")){
+            password += "0";
+        }else if (weapon.equals("Stone Drumsticks")){
+            password += "1";
+        }else if (weapon.equals("Steel Drumsticks")){
+            password += "2";
+        }else if (weapon.equals("Plastic Drumsticks")){
+            password += "3";
+        }else if (weapon.equals("Blood Drumsticks")){
+            password += "4";
+        }else if (weapon.equals("Crystal Drumstick")){
+            password += "5";
+        }else if (weapon.equals("Phil's Signiture Drumsticks")){
+            password += "6";
+        }else if (weapon.equals("Ringo's Signiture Drumsticks")){
+            password += "7";
+        }else if (weapon.equals("Microphone Drumsticks")){
+            password += "8";
+        }else if (weapon.equals("Boohbah Drumsticks")){
+            password += "9";
+        }
+
+        if (Integer.toString(health).length() == 1){
+            password += "00"+health;
+        }else if (Integer.toString(health).length() == 2){
+            password += "0"+health;
+        }else{
+            password += health;
+        }
+
+        if (Integer.toString(curHealth).length() == 1){
+            password += "00"+curHealth;
+        }else if (Integer.toString(health).length() == 2){
+            password += "0"+curHealth;
+        }else{
+            password += curHealth;
+        }
+
+        if (Integer.toString(MP).length() == 1){
+            password += "00"+MP;
+        }else if (Integer.toString(MP).length() == 2){
+            password += "0"+MP;
+        }else{
+            password += MP;
+        }
+
+        if (Integer.toString(curMP).length() == 1){
+            password += "00"+curMP;
+        }else if (Integer.toString(curMP).length() == 2){
+            password += "0"+curMP;
+        }else{
+            password += curMP;
+        }
+
+        if (Integer.toString(speed).length() == 1){
+            password += "00"+speed;
+        }else if (Integer.toString(speed).length() == 2){
+            password += "0"+speed;
+        }else{
+            password += speed;
+        }
+
+        int attackInt = (int) attack;
+        int defenseInt = (int) defense;
+        int magicInt = (int) magic;
+
+        if (Integer.toString(attackInt).length() == 1){
+            password += "0" + attackInt;
+        }else{
+            password += attackInt;
+        }
+
+        if (Integer.toString(defenseInt).length() == 1){
+            password += "0" + defenseInt;
+        }else{
+            password += defenseInt;
+        }
+
+        if (Integer.toString(magicInt).length() == 1){
+            password += "0" + magicInt;
+        }else{
+            password += magicInt;
+        }
+
+        password += "0";
+
+        for (String spell : spells){
+
+        if (spell.equals("In The Air Tonight")){
+            password += 0;
+        }else if (spell.equals("I Don't Care Anymore")){
+            password += 1;
+        }else if (spell.equals("Easy Lover")){
+            password += 2;
+        }else if (spell.equals("One More Night")){
+            password += 3;
+        }else if (spell.equals("Take Me Home")){
+            password += 4;
+        }else if (spell.equals("I Can't Dance")){
+            password += 5;
+        }else if (spell.equals("Sussudio")){
+            password += 6;
+        }else if (spell.equals("In Too Deep")){
+            password += 7;
+        }else if (spell.equals("Two Hearts")){
+            password += 8;
+        }else if (spell.equals("Invisible Touch")){
+            password += 9;
+        }else if (spell.equals("That's All")){
+            password += "A";
+        }
+    }
+
+        return password;
+    }
+
     public void raiseAttack(){
         System.out.println("Increased attack power");
         tempAttack *= (1 + (tempMagic/10));
@@ -391,13 +720,13 @@ public class collins {
     }
 
     public void lowerDefense(){
-        System.out.println("Decreased defense power");
         tempDefense /= (1 + (tempMagic/10));
     }
 
     public void raiseMagic(){
         System.out.println("magic increased");
-        tempMagic *= (1 + (tempMagic/10));
+        tempMagic *= (1 + (tempMagic/20));
+        tempMagicCount++;
     }
 
     public void lowerMagic(){
@@ -451,7 +780,7 @@ public class collins {
 
         double range = Math.random()+0.3;
 
-        return (int) (tempMagic*100*range);
+        return (int) (magic*100*range);
 
     }
 

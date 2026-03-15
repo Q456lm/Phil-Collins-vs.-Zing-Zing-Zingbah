@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
@@ -96,6 +97,13 @@ public class main {
         }
     }
 
+    public static String input(String msg) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(msg);
+        String ret = scanner.nextLine();
+        return ret;
+    }
+
     public static int random(int num1, int num2) { //Generates a random number between two values
         int num3 = (num2 - num1) + 1;
         int ran_num = (int) (Math.random() * num3) + num1;
@@ -161,9 +169,8 @@ public class main {
             System.out.println("PHIL COLLINS VS ZING ZING ZINGBAH");
             waitTime(2);
             System.out.println();
-            int start = intInput("Ready to get started?\n1. Start the game\n2. How to play\n3. Credits\n4. stop\n:");
+            int start = intInput("Ready to get started?\n1. Start the game\n2. How to play\n3. Credits\n4. Please enter your password\n5. stop\n: ");
             if (start == 1) {
-                System.out.println(floor);
                 phil.dead = false;
                 System.out.println("Starting game...");
                 waitTime(6);
@@ -172,13 +179,16 @@ public class main {
                 tutorial();
             } else if (start == 3) {
                 credits();
-            } else if (start == 4){
+            }else if (start == 4){
+                String password = input("Please enter your password: ");
+                floor = enterPassword(password, phil);
+                System.out.println("Password entered.");
+            } else if (start == 5){
                 break;
             }else {
                 phil.dead = false;
                 System.out.println("Starting game...");
                 waitTime(6);
-                notStarted = false;
                 floor = gameLoop(floor,phil);
             }
         }
@@ -223,6 +233,285 @@ public class main {
                         "              .:::-------------------:--------::-----:--=----=-=--==============--::    ");
         System.out.println("Thank you for playing!");
         }
+
+    }
+
+    public static int enterPassword(String password, collins phil){
+        boolean truePassword = true;
+        String levelWord = password.substring(0, 4);
+        int level;
+        int weaponType = 0;
+        int health = 0;
+        int curHealth = 0;
+        int MP = 0;
+        int curMP = 0;
+        int speed = 0;
+        int attack = 0;
+        int defense = 0;
+        int magic = 0;
+        ArrayList<String> spells = new ArrayList<String>();
+
+        if (password.length() < 26 || password.length() > 37 ){
+            truePassword = false;
+        }
+
+        try{
+        weaponType = Integer.parseInt(password.substring(4,5));
+        health = Integer.parseInt(password.substring(5,8));
+        curHealth = Integer.parseInt(password.substring(8,11));
+        MP = Integer.parseInt(password.substring(11,14));
+        curMP = Integer.parseInt(password.substring(14,17));
+        speed = Integer.parseInt(password.substring(17,20));
+        attack = Integer.parseInt(password.substring(20,22));
+        defense = Integer.parseInt(password.substring(22,24));
+        magic = Integer.parseInt(password.substring(24,26));
+        int fake = Integer.parseInt(password.substring(26,27));
+        if (fake != 0){
+            truePassword = false;
+        }
+        for (int i = 27; i < password.length(); i++){
+            if (password.substring(i,i+1).equals("A")){
+                if (!(spells.contains("That's All")))
+                spells.add("That's All");
+                else{
+                    truePassword = false;
+                }
+            }else{
+                int spellNum = Integer.parseInt(password.substring(i,i+1));
+                if (spellNum == 0){
+                    if (!(spells.contains("In The Air Tonight")))
+                    spells.add("In The Air Tonight");
+                }else if (spellNum == 1){
+                    if (!(spells.contains("I Don't Care Anymore")))
+                    spells.add("I Don't Care Anymore");
+                    else{
+                        truePassword = false;
+                    }
+                }else if (spellNum == 2){
+                    if (!(spells.contains("Easy Lover")))
+                    spells.add("Easy Lover");
+                    else{
+                        truePassword = false;
+                    }
+                }else if (spellNum == 3){
+                    if (!(spells.contains("One More Night")))
+                    spells.add("One More Night");
+                    else{
+                        truePassword = false;
+                    }
+                }else if (spellNum == 4){
+                    if (!(spells.contains("Take Me Home")))
+                    spells.add("Take Me Home");
+                    else{
+                        truePassword = false;
+                    }
+                }else if (spellNum == 5){
+                    if (!(spells.contains("I Can't Dance")))
+                    spells.add("I Can't Dance");
+                    else{
+                        truePassword = false;
+                    }
+                }else if (spellNum == 6){
+                    if (!(spells.contains("Sussudio")))
+                    spells.add("Sussudio");
+                    else{
+                        truePassword = false;
+                    }
+                }else if (spellNum == 7){
+                    if (!(spells.contains("In Too Deep")))
+                    spells.add("In Too Deep");
+                    else{
+                        truePassword = false;
+                    }
+                }else if (spellNum == 8){
+                    if (!(spells.contains("Two Hearts")))
+                    spells.add("Two Hearts");
+                    else{
+                        truePassword = false;
+                    }
+                }else if (spellNum == 9){
+                    if (!(spells.contains("Invisible Touch")))
+                    spells.add("Invisible Touch");
+                    else{
+                        truePassword = false;
+                    }
+                }
+            }
+        }
+    }catch (Exception e){
+        System.out.println("Invalid Password"); 
+        truePassword = false;
+    }
+
+    if (levelWord.equals("room")){
+        level = 2;
+    }else if (levelWord.equals("sevn")){
+        level = 3;
+    }else if (levelWord.equals("film")){
+        level = 4;
+    }else if (levelWord.equals("sing")){
+        level = 5;
+    }else if (levelWord.equals("wars")){
+        level = 6;
+    }else if (levelWord.equals("hits")){
+        level = 7;
+    }else if (levelWord.equals("cute")){
+        level = 8;
+    }else if (levelWord.equals("back")){
+        level = 9;
+    }else if (levelWord.equals("sick")){
+        level = 10;
+    }else if (levelWord.equals("chef")){
+        level = 11;
+    }else if (levelWord.equals("lion")){
+        level = 12;
+    }else if (levelWord.equals("luck")){
+        level = 13;
+    }else if (levelWord.equals("make")){
+        level = 14;
+    }else if (levelWord.equals("dive")){
+        level = 15;
+    }else if (levelWord.equals("phil")){
+        level = 16;
+    }else if (levelWord.equals("card")){
+        level = 17;
+    }else if (levelWord.equals("fake")){
+        level = 18;
+    }else if (levelWord.equals("mama")){
+        level = 19;
+    }else if (levelWord.equals("twee")){
+        level = 20;
+    }else if (levelWord.equals("fire")){
+        level = 21;
+    }else if (levelWord.equals("wett")){
+        level = 22;
+    }else if (levelWord.equals("ball")){
+        level = 23;
+    }else if (levelWord.equals("dady")){
+        level = 24;
+    }else if (levelWord.equals("booo")){
+        level = 25;
+    }else if (levelWord.equals("thre")){
+        level = 26;
+    }else if (levelWord.equals("mine")){
+        level = 27;
+    }else if (levelWord.equals("hopp")){
+        level = 28;
+    }else if (levelWord.equals("berg")){
+        level = 29;
+    }else if (levelWord.equals("mage")){
+        level = 30;
+    }else if (levelWord.equals("rawr")){
+        level = 31;
+    }else if (levelWord.equals("king")){
+        level = 32;
+    }else if (levelWord.equals("tall")){
+        level = 33;
+    }else if (levelWord.equals("tiny")){
+        level = 34;
+    }else if (levelWord.equals("rich")){
+        level = 35;
+    }else if (levelWord.equals("copy")){
+        level = 36;
+    }else if (levelWord.equals("huge")){
+        level = 37;
+    }else if (levelWord.equals("rock")){
+        level = 38;
+    }else if (levelWord.equals("well")){
+        level = 39;
+    }else if (levelWord.equals("fish")){
+        level = 40;
+    }else if (levelWord.equals("lord")){
+        level = 41;
+    }else if (levelWord.equals("hike")){
+        level = 42;
+    }else if (levelWord.equals("push")){
+        level = 43;
+    }else if (levelWord.equals("dumb")){
+        level = 44;
+    }else if (levelWord.equals("kong")){
+        level = 45;
+    }else if (levelWord.equals("fade")){
+        level = 46;
+    }else if (levelWord.equals("rule")){
+        level = 47;
+    }else if (levelWord.equals("rain")){
+        level = 48;
+    }else if (levelWord.equals("suck")){
+        level = 49;
+    }else if (levelWord.equals("peak")){
+        level = 50;
+    }else if (levelWord.equals("sxsv")){
+        level = 51;
+    }else if (levelWord.equals("gabe")){
+        level = 52;
+    }else if (levelWord.equals("f123")){
+        level = 53;
+    }else if (levelWord.equals("trip")){
+        level = 54;
+    }else if (levelWord.equals("elon")){
+        level = 55;
+    }else if (levelWord.equals("fall")){
+        level = 56;
+    }else if (levelWord.equals("free")){
+        level = 57;
+    }else if (levelWord.equals("left")){
+        level = 58;
+    }else if (levelWord.equals("what")){
+        level = 59;
+    }else if (levelWord.equals("talk")){
+        level = 60;
+    }else if (levelWord.equals("high")){
+        level = 61;
+    }else if (levelWord.equals("best")){
+        level = 62;
+    }else if (levelWord.equals("toki")){
+        level = 63;
+    }else if (levelWord.equals("cube")){
+        level = 64;
+    }else if (levelWord.equals("stat")){
+        level = 65;
+    }else if (levelWord.equals("jedi")){
+        level = 66;
+    }else if (levelWord.equals("troy")){
+        level = 67;
+    }else if (levelWord.equals("java")){
+        level = 68;
+    }else if (levelWord.equals("nice")){
+        level = 69;
+    }else if (levelWord.equals("link")){
+        level = 70;
+    }else if (levelWord.equals("weak")){
+        level = 71;
+    }else if (levelWord.equals("pink")){
+        level = 72;
+    }else if (levelWord.equals("wake")){
+        level = 73;
+    }else if (levelWord.equals("choo")){
+        level = 74;
+    }else if (levelWord.equals("mess")){
+        level = 75;
+    }else if (levelWord.equals("cook")){
+        level = 76;
+    }else if (levelWord.equals("none")){
+        level = 77;
+    }else if (levelWord.equals("care")){
+        level = 88;
+    }
+    else{
+        truePassword = false;
+        level = 1;
+    }
+
+    if (truePassword){
+        System.out.println("Valid Password");
+        phil.setStats(weaponType, health, curHealth, MP, curMP, speed, attack, defense, magic, spells);
+    }else{
+        level = 1;
+    }
+
+    return level;
+
 
     }
 
@@ -474,22 +763,27 @@ public class main {
                 enemies[2] = new enemy("afton2");
                 enemies[3] = new enemy("maddy2");
             } else {
-                reqNums = 10000000;
+                reqNums = 0;
                 enemies[0] = new enemy("maxwell2");
                 enemies[1] = new enemy("gabe2");
                 enemies[2] = new enemy("afton2");
                 enemies[3] = new enemy("maddy2");
             }
 
-            if (floor > 77) {
+            if (floor > 77 && floor != 88) {
                 notStarted = false;
+                break;
             }
 
             if (enc >= reqNums) {
                 alive = fightBoss(floor, phil);
-                if (alive){
-                    phil.createSaveStats();
+                if (alive && (floor <= 77 || floor == 88)){
                     floor++;
+                    if (floor <= 77){
+                        phil.createSaveStats();
+                        System.out.println("Password: "+phil.generatePassword(floor));
+                        input("Continue? ");
+                    }
                 }
                 enc = 0;
             } else {
@@ -860,6 +1154,7 @@ public class main {
                     if (waiting) {
                         enemyDamage = curEnemey.chargeMagic();
                         phil.takeMagic(enemyDamage);
+                        waiting = false;
                     } else if (randMagic > curEnemey.magicChance) {
 
                         enemyDamage = curEnemey.dealDamage();
@@ -987,8 +1282,9 @@ public class main {
                     if (waiting) {
                         enemyDamage = curEnemey.chargeMagic();
                         phil.takeMagic(enemyDamage);
+                        waiting = false;
                     }
-                    if (randMagic > curEnemey.magicChance) {
+                    else if (randMagic > curEnemey.magicChance) {
                         enemyDamage = curEnemey.dealDamage();
                         phil.takeDamage(enemyDamage);
                     } else {
